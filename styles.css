@@ -1,0 +1,309 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color:#6c757d;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 20px;
+}
+
+.container {
+    background-color: #b7b3b3;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); 
+    max-width: 550px; 
+    margin-top: 50px; 
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50; 
+    margin-bottom: 30px;
+    font-size: 2.2em; 
+    font-weight: 700; 
+    text-decoration: underline;
+}
+
+#user-info {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #b7b3b3;
+    padding: 8px 15px;
+    border-radius: 8px;
+    ;
+}
+
+#user-info p {
+    margin: 0;
+}
+
+#user-info #user-id {
+    font-weight: 600;
+    color: #4a4a4a;
+    word-break: break-all;
+}
+
+#user-info #user-email {
+    font-weight: 600;
+    color: #4a4a4a;
+    word-break: break-all;
+}
+
+.input-section {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+#todo-input {
+    flex-grow: 1;
+    padding: 12px 15px; 
+    border: 1px solid #e0e0e0; 
+    background-color: #b7b3b3;
+    border-radius: 8px; 
+    font-size: 17px;
+    outline: none; 
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; 
+}
+
+#todo-input:focus {
+    border-color: #6a8aff; 
+    box-shadow: 0 0 0 3px rgba(106, 138, 255, 0.2); 
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    letter-spacing: 0.5px; 
+    text-transform: capitalize; 
+}
+
+button:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+}
+
+button:active {
+    transform: translateY(0); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#add-button {
+    background: linear-gradient(45deg, #6a8aff, #8c7dff); 
+    color: white;
+    margin-left: 15px;
+}
+
+#add-button:hover {
+    background: linear-gradient(45deg, #5678ff, #7a6dff); 
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3; 
+    border-top: 4px solid #6a8aff; 
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto; 
+    display: none; 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px; 
+}
+
+#todo-list li {
+    display: flex;
+    align-items: center;
+    padding: 15px 0; 
+    border-bottom: 1px solid #f0f0f0; 
+    font-size: 18px;
+    color: #4a4a4a;
+    transition: background-color 0.3s ease; 
+}
+
+#todo-list li:hover {
+    background-color: lightgrey; 
+}
+
+#todo-list li:last-child {
+    border-bottom: none;
+}
+
+#todo-list li.completed {
+    text-decoration: line-through;
+    color: #a0a0a0;
+    font-style: italic; 
+}
+
+#todo-list li input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.4); 
+    accent-color: #6a8aff; 
+    cursor: pointer;
+}
+
+#todo-list li span {
+    flex-grow: 1;
+    cursor: pointer;
+    padding: 5px 0; 
+}
+
+#todo-list li .delete-button {
+    background: linear-gradient(45deg, #ff6b6b, #ff4d4d); 
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px; 
+    font-size: 14px;
+    margin-left: 15px;
+    box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2); 
+}
+
+#todo-list li .delete-button:hover {
+    background: linear-gradient(45deg, #ff5c5c, #ff3333); 
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.filters {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 25px;
+    margin-bottom: 20px;
+    gap: 10px; /
+}
+
+.filters button {
+    background-color: #e0e0e0; 
+    color: #555;
+    box-shadow: none;
+    padding: 10px 18px; 
+    font-size: 15px;
+}
+
+.filters button:hover {
+    background-color: grey;
+    transform: none; 
+    box-shadow: none;
+}
+
+.filters button.active {
+    background: linear-gradient(45deg, #82d473, #5cb85c); 
+    color: white;
+    box-shadow: 0 4px 15px rgba(92, 184, 92, 0.2); 
+    transform: translateY(-1px); /
+}
+
+.filters button.active:hover {
+    background: linear-gradient(45deg, #71c362, #4ca64c); 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(92, 184, 92, 0.3);
+}
+
+#clear-completed {
+    display: block;
+    width: fit-content;
+    margin: 25px auto 0; 
+    background: linear-gradient(45deg, #ffae42, #ff8c00);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.2); 
+}
+
+#clear-completed:hover {
+    background: linear-gradient(45deg, #f7a030, #e67e00); 
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+}
+
+.auth-section {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: -17px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #fcfcfc;
+}
+
+.auth-section h2 {
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+.auth-section input[type="email"],
+.auth-section input[type="password"] {
+    width: 100%;
+   
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 17px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.auth-section input[type="email"]:focus,
+.auth-section input[type="password"]:focus {
+    border-color: #6a8aff;
+    box-shadow: 0 0 0 3px rgba(106, 138, 255, 0.2);
+}
+
+.auth-section button {
+    width: 100%;
+    background: linear-gradient(45deg, #007bff, #0056b3); 
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+    margin-top: 10px; 
+}
+
+.auth-section button:hover {
+    background: linear-gradient(45deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.auth-section .toggle-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #6a8aff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.auth-section .toggle-link:hover {
+    color: #4f6bff;
+}
+
+#sign-out-button {
+    background: linear-gradient(45deg, grey); 
+    color: white;
+    margin-top: 30px;
+    width: fit-content;
+    margin-left: 116px;
+    margin-right: 20px;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+}
+
+#sign-out-button:hover {
+    background: linear-gradient(45deg, lightgrey);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+}
+
+
